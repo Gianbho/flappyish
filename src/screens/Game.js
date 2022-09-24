@@ -159,7 +159,7 @@ class Game extends Component {
   };
 
   checkPos = (d, pipes) => {
-    console.log('d', d, 'bound', d?.getBoundingClientRect())
+    console.log('d', d, 'bound', d?.getBoundingClientRect(), 'pipes', pipes);
     const a = d?.getBoundingClientRect();
     console.log(a);
 
