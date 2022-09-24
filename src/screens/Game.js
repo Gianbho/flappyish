@@ -167,6 +167,7 @@ class Game extends Component {
       if (!pipe) continue;
 
       let b = pipe?.ref?.getBoundingClientRect();
+      console.log(b);
       if (
         pipe?.id !== this?.hitPipe &&
         a?.x + a?.width > b?.x &&
