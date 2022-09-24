@@ -25,7 +25,6 @@ function App() {
 
   return (
     <div className="App">
-      {}
       <Routes>
         <Route path={"/"} element={<Start callback={callbackTutorial} />} />
         <Route path={"game"} element={<Game tutorial={tutorial} />} />
