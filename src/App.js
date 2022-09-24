@@ -30,6 +30,7 @@ function App() {
         <Route path={"/"} element={<Start callback={callbackTutorial} />} />
         <Route path={"game"} element={<Game tutorial={tutorial} />} />
         <Route path={"gameResults"} element={<GameResults />} />
+        <Route path={"*"} element={<Start callback={callbackTutorial} />} />
       </Routes>
       {/* <MediaQuery orientation="landscape">
         <Game />
