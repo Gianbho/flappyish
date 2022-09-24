@@ -1,0 +1,23 @@
+.btDefoalt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 5px;
+  background-color: rgb(75, 73, 73);
+  cursor: pointer;
+  color: white;
+  height: 50px;
+  width: 150px;
+  border-radius: 20px;
+  z-index: 3;
+  text-shadow: 2px 2px black;
+}
+
+.btDefoalt:hover {
+  background-color: rgb(112, 112, 112);
+}
+
+.btDefoalt:active {
+  background-color: rgb(75, 73, 73);
+}

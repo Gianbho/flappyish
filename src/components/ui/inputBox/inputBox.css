@@ -1,0 +1,17 @@
+.inputBox {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+}
+input {
+  align-self: center;
+  border: 3px inset rgb(61, 89, 148);
+  border-radius: 12px;
+  z-index: 15;
+}
+label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  height: fit-content;
+}

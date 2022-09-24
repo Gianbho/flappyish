@@ -1,0 +1,41 @@
+.lives-card {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: space-around;
+    width: 10vw;
+    height: 10vh;
+    z-index: 4;
+}
+
+.lives-card img {
+    object-fit: contain;
+    height: 100%;
+}
+
+.lives-card span {
+    display: flex;
+    font-size: 32px;
+    align-items: center;
+    font-weight: bold;
+    text-shadow: black 2px 2px;
+    color: white;
+    height: 100%;
+    width: 40%;
+}
+
+.lives-card span::before {
+    content: 'x';
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+
+@media (orientation: portrait) {
+.lives-card {
+    width: 5vw;
+    height: 5vh;
+    right: 15%;
+}
+}

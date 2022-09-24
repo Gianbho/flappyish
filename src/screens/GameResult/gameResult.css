@@ -1,0 +1,68 @@
+.resultsPage {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+  background-image: url("../../assets/backgrounds/game_background_3/game_background_3.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.resultsBox {
+  border-radius: 2vh;
+  position: relative;
+  background-color: gray;
+  border: dashed rgb(71, 61, 57);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+  color: white;
+  text-shadow: 2px 2px black;
+  padding-bottom: 1.5vh;
+}
+.resultsBox p {
+  z-index: 2;
+}
+.buttonRanking {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.history {
+  overflow-y: scroll;
+  height: 30vh;
+  width: 30vw;
+  padding: 1rem;
+  border-radius: 1rem;
+  z-index: 4;
+}
+.resultsPage p {
+  display: flex;
+  justify-content: space-between;
+}
+.best {
+  font-size: x-large;
+}
+.wormResults {
+  position: relative;
+  left: 20%;
+}
+.point {
+  color: rgb(255, 34, 0);
+  font-size: x-large;
+}
+@media (orientation: portrait) {
+  .wormResults {
+    left: 0;
+  }
+  .history {
+    width: 60vw;
+  }
+  .resultsBox {
+    width: 80vw;
+  }
+}

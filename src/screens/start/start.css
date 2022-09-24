@@ -1,0 +1,48 @@
+.startScreen {
+  position: relative;
+  background-image: url("../../assets/backgrounds/game_background_3/game_background_3.png");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.startScreen .wormStart {
+  left: 5%;
+  width: 10%;
+  position: absolute;
+  bottom: 30%;
+  z-index: 0;
+}
+.knight {
+  right: 5%;
+  bottom: 35%;
+  position: absolute;
+  transform: scaleX(-1);
+  scale: 2;
+}
+
+@media (orientation: portrait) {
+  .knight {
+    right: -5%;
+    bottom: 35%;
+    position: absolute;
+    transform: scaleX(-1);
+    scale: 2;
+  }
+  .startScreen .wormStart {
+    left: -5%;
+    position: absolute;
+    bottom: 65%;
+    z-index: 2;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .knight{
+    scale: 3;
+  }
+  
+}

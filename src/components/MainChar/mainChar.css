@@ -1,0 +1,66 @@
+.flappy {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  top: 40%;
+  left: 30%;
+  width: 100px;
+  height: 20%;
+/*   background-color: red; */
+  transition: all 0.1s linear;
+}
+
+.worm {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10%;
+  left: 5%;
+  width: 100px;
+  height: 100%;
+ /* background-color: red; */
+  transition: all 0.1s linear;
+}
+
+
+.flappy-animation-1 {
+  top: 10%;
+  transition: all 0.1s linear;
+}
+
+.flappy-animation-2 {
+  top: 40%;
+  transition: all 0.1s linear;
+}
+
+.flappy-animation-3 {
+  top: 70%;
+  transition: all 0.1s linear;
+}
+
+.flappy-animation-4 {
+  left: 10%;
+  transition: all 0.1s linear;
+}
+
+.flappy-animation-5 {
+  left: 20%;
+  transition: all 0.1s linear;
+}
+
+.flappy-animation-6 {
+  left: 30%;
+  transition: all 0.1s linear;
+}
+
+.flappy-animation-7 {
+  left: 40%;
+  transition: all 0.1s linear;
+}
+
+.flappy-animation-8 {
+  left: 50%;
+  transition: all 0.1s linear;
+}

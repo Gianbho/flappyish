@@ -1,0 +1,25 @@
+.notFlappy {
+    position: absolute;
+    top: 0;
+    right: 98%;
+    width: 70px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    animation: movement linear 2.2s forwards;
+    z-index: 1;
+}
+
+.powerUp0, .powerUp1 {
+
+}
+
+@keyframes movement {
+  from {
+    right: -10%;
+  }
+  to {
+    right: 150%;
+  }
+}
+

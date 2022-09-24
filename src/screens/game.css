@@ -1,0 +1,65 @@
+.lanes {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 62%;
+  z-index: 1;
+}
+
+.pipe-lanes {
+  position: fixed;
+  width: 100%;
+}
+
+.lane {
+  position: relative;
+  width: 100%;
+  height: 33.3%;
+  /*     background-color: bisque;
+    border: solid 2px black;
+ */
+  z-index: 1;
+}
+.movement-lane {
+  cursor: pointer;
+  z-index: 3;
+}
+
+.game {
+  position: relative;
+  display: flex;
+}
+.worm {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 5%;
+  left: -5%;
+  width: 100px;
+  height: 100%;
+  z-index: 1;
+  /* background-color: red; */
+  transition: all 0.1s linear;
+}
+
+.points {
+  position: fixed;
+  font-size: x-large;
+  text-shadow: black 2px 2px;
+  color: white;
+  top: 7%;
+  left: 48%;
+  width: 10vh;
+  height: 35px;
+  z-index: 2;
+}
+
+@media (orientation: portrait) {
+  .worm {
+    left: -25%;
+  }
+}

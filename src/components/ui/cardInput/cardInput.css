@@ -1,0 +1,45 @@
+.CardInput {
+  display: flex;
+  position: relative;
+  width: 50%;
+  margin: 1vh auto;
+  height: 60vh;
+  background-color: gray;
+  border: dashed rgb(71, 61, 57);
+  border-radius: 2vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1;
+  color: black;
+  text-shadow: 2px 2px white;
+}
+
+.CardInput h1 {
+  z-index: 1;
+  color: black;
+  text-shadow: 2px 2px white;
+}
+
+.tutorial {
+  position: absolute;
+}
+.tutorial img {
+  height: 60vh;
+}
+
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(
+      from 45deg,
+      #3f3f3fb0 0% 25%,
+      #747474ad 0% 50%,
+      #919191b2 0% 75%,
+      #bdbdbd91 0%
+    )
+    50%/ 20px 20px;
+  border-radius: 2vh;
+  z-index: 0;
+}
