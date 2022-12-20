@@ -17,12 +17,15 @@ const Spawner = (props) => {
     if (0 <= randomElem && randomElem <= 0.1) {
       tempState.willSpawn = true;
       tempState.type = "powerUp0";
+      tempState.id = state.id + 1;
     } else if (0.1 < randomElem && randomElem <= 0.2) {
       tempState.willSpawn = true;
       tempState.type = "powerUp1";
+      tempState.id = state.id + 1;
     } else if (0.2 < randomElem && randomElem <= 0.4) {
       tempState.willSpawn = false;
       tempState.type = "none";
+      tempState.id = state.id + 1;
     } else {
       tempState.willSpawn = true;
       tempState.type = "pipe";
