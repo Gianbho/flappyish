@@ -67,7 +67,8 @@ class Game extends Component {
     console.log(this.location.state)
     this.myInterval = setInterval(
       this.checkPos,
-      50,
+      100,
+      this.birdRef,
       this.notBirdRef
     );
 
@@ -157,15 +158,13 @@ class Game extends Component {
     }
   };
 
-  checkPos = (pipes) => {
-    const a = this.birdRef?.getBoundingClientRect();
-    console.log(a);
+  checkPos = (d, pipes) => {
+    const a = d?.getBoundingClientRect();
 
     for (let pipe of pipes) {
       if (!pipe) continue;
 
       let b = pipe?.ref?.getBoundingClientRect();
-      console.log(b);
       if (
         pipe?.id !== this?.hitPipe &&
         a?.x + a?.width > b?.x &&

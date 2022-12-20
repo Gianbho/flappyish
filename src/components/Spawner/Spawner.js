@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Pipe from "../Pipe/Pipe";
 
+let pipe;
+let myInterval;
 const Spawner = (props) => {
-  const [myInterval, setMyInterval] = useState(null);
 
   const [state, setState] = useState({
     willSpawn: false,
     type: null,
+    id: 0
   });
 
-  const [pipe, setPipe] = useState(null);
-
   const renderElem = () => {
-    let randomElem = Math.random();
+    let randomElem = Math.random().toFixed(2);
     let tempState = {};
     if (0 <= randomElem && randomElem <= 0.1) {
       tempState.willSpawn = true;
@@ -26,16 +26,17 @@ const Spawner = (props) => {
     } else {
       tempState.willSpawn = true;
       tempState.type = "pipe";
+      tempState.id = state.id + 1;
     }
     setState(tempState);
   };
 
   useEffect(() => {
     sendInfo(pipe, props.id);
-  }, [pipe]);
+  }, [state]);
 
-  useEffect(() => {
-    setMyInterval(setInterval(renderElem, 2200));
+  useEffect(() => { 
+    myInterval = setInterval(renderElem, 1500);
     return () => {
       setState({ ...state, willSpawn: false });
       clearInterval(myInterval);
@@ -47,10 +48,10 @@ const Spawner = (props) => {
   }
 
   function getInfo(elem, random) {
-    setPipe({ ref: elem, id: random });
+    pipe = { ref: elem, id: random };
   }
   return (
-    <>{state.willSpawn && <Pipe callback={getInfo} type={state.type} />}</>
+    <>{state.willSpawn ? <Pipe callback={getInfo} type={state.type} /> : null}</>
   );
 };
 
