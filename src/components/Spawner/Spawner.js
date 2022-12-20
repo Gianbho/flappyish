@@ -20,7 +20,7 @@ const Spawner = (props) => {
     } else if (0.1 < randomElem && randomElem <= 0.2) {
       tempState.willSpawn = true;
       tempState.type = "powerUp1";
-    } else if (0.2 < randomElem && randomElem <= 0.45) {
+    } else if (0.2 < randomElem && randomElem <= 0.4) {
       tempState.willSpawn = false;
       tempState.type = "none";
     } else {
