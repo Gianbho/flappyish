@@ -58,8 +58,6 @@ const Spawner = (props) => {
             }
         }
     }
-    console.log(myElements)
-
 
     setState({
         ...state,
@@ -102,9 +100,6 @@ const Spawner = (props) => {
             };   
             break;         
     }
-    console.log(0, lane0.current);
-    console.log(1, lane1.current);
-    console.log(2, lane2.current);
 }
 
 

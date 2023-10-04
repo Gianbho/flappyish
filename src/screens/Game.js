@@ -146,14 +146,18 @@ class Game extends Component {
   };
 
   getInfos = () => (ref, id) => {
+    let i = 0;
     if (ref !== null) {
       //console.log(ref);
-      if (ref?.ref?.id?.toLowerCase() === "flappy") {
-        if (!this.birdRef) this.birdRef = ref.ref;
-      } else {
-        console.log(`lane${id}`, ref);
-        this.notBirdRef[id] = ref;
-      }
+      ref.forEach(ref => {
+        if (ref?.ref?.id?.toLowerCase() === "flappy") {
+          if (!this.birdRef) this.birdRef = ref.ref;
+          console.log(`lane${id}`, ref);
+        } else {
+          this.notBirdRef[i] = ref;
+          i++;
+        }
+      });
     }
   };
 
