@@ -196,17 +196,7 @@ class Game extends Component {
           {this.state.isTutorial && <Tutorial controller={this.state.tutorialController} />}
           <LivesCard lives={this.state.char.positionX} />
           <div className="bg bg-animation"></div>
-          <div className="lanes pipe-lanes">
-            <span id="3" className="lane pipe-lane">
-              {!this.state.isTutorial && <Spawner callback={this.getInfos()} id={0} />}
-            </span>
-            <span id="4" className="lane pipe-lane">
-              {!this.state.isTutorial && <Spawner callback={this.getInfos()} id={1} />}
-            </span>
-            <span id="5" className="lane pipe-lane">
-              {!this.state.isTutorial && <Spawner callback={this.getInfos()} id={2} />}
-            </span>
-          </div>
+          <Spawner callback={this.getInfos()} />
           <div className="lanes">
             <MainChar
               callback={this.getInfos()}
