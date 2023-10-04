@@ -36,7 +36,7 @@ const MainChar = (props) => {
   ];
 
   function setRef(ref) {
-    if (!!props.callback) props.callback(ref);
+    if (!!props.callback) props.callback([ref]);
   }
 
   useEffect(() => {
