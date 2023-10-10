@@ -4,9 +4,11 @@ import Pipe from "../Pipe/Pipe";
 let pipes = [];
 const Spawner = (props) => {
   
-  const lane0 = useRef(null);
-  const lane1 = useRef(null);
-  const lane2 = useRef(null);
+  const refs = {
+    lane0: useRef(null),
+    lane1: useRef(null),
+    lane2: useRef(null),
+  }
   
   const [state, setState] = useState({
     willSpawn: false,
@@ -67,11 +69,15 @@ const Spawner = (props) => {
   };
 
 
-  const animFinished = () => {
-    setState({
-        ...state,
-        willSpawn: false
-    })
+  const animFinished = (e) => {
+    refs[`lane${e}`].current = null;
+    console.log(refs.lane0.current, refs.lane1.current, refs.lane2.current, refs[`lane${e}`].current, e)
+    if(!refs.lane0.current && !refs.lane1.current && !refs.lane2.current) {
+      setState({
+          ...state,
+          willSpawn: false
+      })
+    }
 }
 
   function sendInfo(info, id) {
@@ -82,19 +88,19 @@ const Spawner = (props) => {
     const eventRects = e.target.getBoundingClientRect();
     switch(lane){
         case 'lane0':
-            lane0.current = {
+            refs.lane0.current = {
                 y: eventRects.y,
                 height: eventRects.height,
             };
             break;
         case 'lane1':
-            lane1.current = {
+            refs.lane1.current = {
                 y: eventRects.y,
                 height: eventRects.height,
             };
             break;
         case 'lane2':
-            lane2.current = {
+            refs.lane2.current = {
                 y: eventRects.y,
                 height: eventRects.height,
             };   
@@ -112,13 +118,13 @@ const Spawner = (props) => {
 return (
     <div className="lanes pipe-lanes">
       <span id="3" className="lane pipe-lane" onAnimationStart={getY('lane0')}>
-        {state.willSpawn && <Pipe callback={getInfo} pos={lane0.current} callbackFinish={animFinished} lane={0} type={state.elements[0].type} />}
+        {state.willSpawn && <Pipe callback={getInfo} pos={refs.lane0.current} callbackFinish={animFinished} lane={0} type={state.elements[0].type} />}
       </span>
       <span id="4" className="lane pipe-lane" onAnimationStart={getY('lane1')}>
-        {state.willSpawn && <Pipe callback={getInfo} pos={lane1.current} callbackFinish={animFinished} lane={1} type={state.elements[1].type} />}
+        {state.willSpawn && <Pipe callback={getInfo} pos={refs.lane1.current} callbackFinish={animFinished} lane={1} type={state.elements[1].type} />}
       </span>
       <span id="5" className="lane pipe-lane" onAnimationStart={getY('lane2')}>
-        {state.willSpawn && <Pipe callback={getInfo} pos={lane2.current} callbackFinish={animFinished} lane={2} type={state.elements[2].type} />}
+        {state.willSpawn && <Pipe callback={getInfo} pos={refs.lane2.current} callbackFinish={animFinished} lane={2} type={state.elements[2].type} />}
       </span>
     </div>
 );

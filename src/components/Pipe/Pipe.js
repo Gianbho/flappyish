@@ -16,7 +16,7 @@ const Pipe = (props) => {
 
   function unmountPipe(){
     const rects = pipeRef.current && pipeRef.current.getBoundingClientRect();
-    if(rects?.x < (0 - rects?.width)) props.callbackFinish()
+    if(rects?.x < (0 - rects?.width) || (pipeRef.current?.style.display === 'none')) props.callbackFinish(props.lane)
   }
 
   useEffect(() => { 
