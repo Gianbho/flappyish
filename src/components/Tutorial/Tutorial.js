@@ -14,7 +14,7 @@ let messages = [
   false,
 ];
 const Tutorial = (props) => {
-  let i = 0;
+  let i = props.onlyCounter ? (messages.length - 1) : 0;
   const [controller, setController] = useState({
     message: messages[i],
     count: 3,
@@ -33,7 +33,7 @@ const Tutorial = (props) => {
     };
   }, []);
 
-  useEffect(() => {
+   useEffect(() => {
     if (!controller.message) {
       clearInterval(interval);
       countInterval = setInterval(() => {
@@ -44,15 +44,12 @@ const Tutorial = (props) => {
       }, 1000);
     }
   }, [controller.message]);
-
+ 
   useEffect(() => {
     if (controller.count <= 0) {
       clearInterval(countInterval);
-      setController({
-        ...controller,
-        count: null,
-      });
-    eventsBus.dispatch('endTutorial');
+      eventsBus.dispatch('endTutorial');
+      console.log('end')
     }
   }, [controller.count]);
 

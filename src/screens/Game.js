@@ -30,6 +30,7 @@ class Game extends Component {
         positionY: 1,
         positionX: 2,
       },
+      counterActive: true,
       score: this.scoreFinal,
       isTutorial: this.props.router.location?.state?.showTutorial,
     };
@@ -71,10 +72,11 @@ class Game extends Component {
       this.notBirdRef
     );
 
-    if(this.state.isTutorial){
+    if(this.state.isTutorial || this.state.counterActive){
       eventsBus.on('endTutorial', () => {
-        this.setState({isTutorial: false});
+        this.setState({isTutorial: false, counterActive: false});
         this.score = setInterval(this.scoreCount, 600);
+        console.log(this.state)
       });    
     } else {
       this.score = setInterval(this.scoreCount, 600);
@@ -97,7 +99,8 @@ class Game extends Component {
       eventsBus.dispatch("hitContact", true);
       this.handlePipeColl(tempCharState);
     } else if (coll?.ref?.id.includes("powerUp")) {
-      this.handlePowerUpColl(tempCharState, coll?.ref.id);
+      this.handlePowerUpColl(tempCharState, coll.ref.id);
+      coll.ref.style.display = 'none'
     }
     this.setState({
       char: tempCharState,
@@ -197,10 +200,11 @@ class Game extends Component {
       <>
         <div className="game">
           <div className="points">{this.state.score}</div>
-          {this.state.isTutorial && <Tutorial controller={this.state.tutorialController} />}
+          {this.state.isTutorial && <Tutorial />}
+          {!this.state.isTutorial && this.state.counterActive && <Tutorial onlyCounter={this.state.counterActive}/>}
           <LivesCard lives={this.state.char.positionX} />
           <div className="bg bg-animation"></div>
-          <Spawner callback={this.getInfos()} />
+          {!this.state.isTutorial && !this.state.counterActive && <Spawner callback={this.getInfos()} />}
           <div className="lanes">
             <MainChar
               callback={this.getInfos()}

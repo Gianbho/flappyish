@@ -7,7 +7,7 @@ import Button from "../button/Button";
 import InputBox from "../inputBox/InputBox";
 import { useState } from "react";
 //img
-import imgTutorial from "../../../assets/tutorial.PNG";
+import imgTutorial from "../../../assets/tutorial.png";
 
 let valueInput = null;
 function CardInput(props) {
